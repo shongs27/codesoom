@@ -23,7 +23,8 @@
 - Mocking - 
 - token - 최소한의 의미, 자격
 - BDD : describe(테스트대상) - context(상황묘사 with, without, when) - it(기대결과)
- => 간단한건 test()를 사용하지만 BDD로 구현의도를 드러내며 작성하는 것이 옳다
+  - 간단한건 test()를 사용하지만 BDD로 구현의도를 드러내며 작성하는 것이 옳다
+  - 만약 할 일이 있을 때(GIVEN), List컴포넌트를 렌더하면(WHEN), 할 일 목록이 렌더링 된다(THEN)
 - test suite : test:unit을 관계별로 묶어둔것
 
 ## 테스트
@@ -40,6 +41,8 @@
   - 2. 동작(함수)은 잘 작동하는가?
 1. 컴포넌트의 테스트 구현은  **컴포넌트 본연의 기능을 만족하는 최소한의 것**만 구현한다
 2. 전체적인 통합테스트는 App.js의 비즈니스 로직을 다룬 컴포넌트에서 가능하다
+  - 부모(컨테이너) 컴포넌트들에서는 자식 컴포넌트가 가진 특정 요소를 포함하는지를 테스트  
+  https://github.com/CodeSoom/react-week3-assignment-1/pull/95#issuecomment-993627287
 3. 테스트끼리 상태가 공유되는 것들은 beforEach(테스트 실행전에 동작)와 같은 메소드를 통해 모두 초기화한다. (문맥이 다른 테스트를 새로 작성하는 것과 다르다)
 4. 리스트가 있는지 expect().not.tobeNull(), expet().toHaveTextContent() 등으로 다양한 방법으로 확인가능하니 라이브러리 doc의 API의 활용이 중요하다
 
@@ -53,3 +56,4 @@
 ### 개선점
 !! 함수동작 중심의 테스트구현 말고 useState를 mocking 해서 점검하는 것을 공부해보자
 !! Mocking에 대해 공부하자
+  https://github.com/CodeSoom/react-week3-assignment-1/pull/95/files
