@@ -7,11 +7,20 @@
   - fireEvent와 같은 유저액션이 가능하다
 - @testing-library-jest-dom : [Matcher 추가 확장](https://github.com/testing-library/jest-dom)    
 - jest-plugin-context : context를 사용지원
+=> JEST는 라이브러리의 활용도가 높다
+
+## TDD
+1) Red - write a little test that doesn’t work, perhaps doesn’t even compile at first  
+2) Green - make the test work quickly, committing whatever sins necessary in the process  
+3) Refactor - eliminate all the duplication created in just getting the test to wor  
+
+2번까지 구현이 1차목표, 후에 지속적인 리팩토링(3번)으로 개선
 
 ## 용어
 - Assertion - 단정문으로 기대하는 값과 실제하는 값이 일치하는지 확인 ex) exepct와 Matcher의 조합  
     expect(기대하는것).<Matcher>
 - Signiture - 모든 테스트 연산은 name, parameters, return을 명세
+- Mocking - 
 - token - 최소한의 의미, 자격
 - BDD : describe(테스트대상) - context(상황묘사 with, without, when) - it(기대결과)
  => 간단한건 test()를 사용하지만 BDD로 구현의도를 드러내며 작성하는 것이 옳다
@@ -26,17 +35,21 @@
 --watchAll --verbose
 
 ## 요점
-0. 동작 중심으로, 계획을 세워 테스트를 시작한다
-1. 컴포넌트의 테스트 구현은  **컴포넌트 최소 목적**에 부합하는 **것**만 구현한다
-2. 전체적인 통합테스트는 App.js의 비즈니스 로직을 다룬 컴포넌트에서 쓰도록 지향한다
+0. 기능을 점검하는 계획을 세워 테스트를 시작한다
+  - 1. 뷰를 잘 보여주는가?
+  - 2. 동작(함수)은 잘 작동하는가?
+1. 컴포넌트의 테스트 구현은  **컴포넌트 본연의 기능을 만족하는 최소한의 것**만 구현한다
+2. 전체적인 통합테스트는 App.js의 비즈니스 로직을 다룬 컴포넌트에서 가능하다
 3. 테스트끼리 상태가 공유되는 것들은 beforEach(테스트 실행전에 동작)와 같은 메소드를 통해 모두 초기화한다. (문맥이 다른 테스트를 새로 작성하는 것과 다르다)
-4. 리스트가 있는지 expect().not.tobeNull(), expet().toHaveTextContent() 등으로 다양한 방법으로 확인가능하니 라이브러리 doc의 API도 중요하다
-
+4. 리스트가 있는지 expect().not.tobeNull(), expet().toHaveTextContent() 등으로 다양한 방법으로 확인가능하니 라이브러리 doc의 API의 활용이 중요하다
 
 ### 느낀점
 - 새로운 것을 배울때는 일단 헤딩이다  
-  최소한의 구현은 충분히 혼자 할 수 있다 약한 소리 하지 말 것  
+  최소한의 구현은 충분히 혼자 할 수 있다. 약한 소리 하지 말 것
   doc를 보되 한글 번역이 있으면 그걸 참조한다  
   https://codesoom-group.slack.com/archives/C02N79T6JTA/p1638544785020300
-- 학습을 위한 글쓰기는 중요하다. 미사어구는 줄여서 필요한 말만 사용하자
+- 학습을 위한 글쓰기는 중요하다. 미사여구는 줄이자.
 
+### 개선점
+!! 함수동작 중심의 테스트구현 말고 useState를 mocking 해서 점검하는 것을 공부해보자
+!! Mocking에 대해 공부하자
