@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Test.js",
   "scripts": {
     "start": "webpack serve",
     "test:unit": "jest",
