@@ -1,7 +1,7 @@
 // https://react.vlpt.us/basic/19-React.memo.html
 // useMemo, useCallback, memo를 통한 컴포넌트 렌더링 최적화를 위한 공부
 
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 
 import { useState, useCallback } from 'react';
 import Son from './Son';
@@ -19,9 +19,11 @@ export default function Test() {
   return (
     <div>
       <div>부모입니다</div>
-      <button type="button" onClick={handleOnly}>부모만</button>
+      <button type="button" onClick={handleOnly}>
+        부모만
+      </button>
       <button type="button" onClick={handleNumber}>
-        아들까지   {number}
+        아들까지 {number}
       </button>
       <br />
       <br />
@@ -29,9 +31,7 @@ export default function Test() {
       <Son handleNumber={handleNumber} />
       <Son2 />
     </div>
-
   );
 }
 
-
-ReactDOM(<Test /> , document.getElementById('app'))
+ReactDOM.render(<Test />, document.getElementById('app'));
